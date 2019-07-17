@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<title>mh-assignment</title>
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+
+</head>
+<body>
+
+  	<div id="mh-app" v-cloak v-if="deliveryTimes">
+		<section class="panel panel-collapsed">
+			<div class="panel-summary">
+				<div>
+					<input v-model="inHome" id="in-home" name="in-home-check" type="checkbox" />
+					<label class="whitespace-none" for="in-home">
+						<span></span> In i kylen-leverans
+						<div class="tag tag-default">För dig med Gluelås</div>
+					</label>
+				</div>
+			</div>
+		</section>
+		
+		<section class="panel delivery-time">
+			<h2 role="heading">
+				Leveranstid
+			</h2>
+			<div class="panel-content">
+				<h4 class="table-heading">
+					Möjlighet att ändra order till idag kl 13:00
+					<span class="small-text">
+						<i class="fa fa-check text-success"></i>
+						Du får SMS med exakt leveranstid
+					</span>
+				</h4>
+
+				<ul class="time-picker table">
+					<li v-for="(deliveryTime, idx) in deliveryTimes" v-if="!inHome || (inHome && deliveryTime.inHomeAvailable)" :key="idx" aria-disabled="false">
+						<input 
+							:id="`47704_${idx}`" 
+							name="delivery-time-slot" 
+							type="radio" 
+						/>
+						<label class="small" role="radio" :for="`47704_${idx}`">
+							<span @click="handleDeliveryTimeSelect(deliveryTime.time)"></span>
+							{{ deliveryTime.time }}
+						</label>
+					</li> 
+				</ul>
+
+			</div>
+			<div class="panel-footer">
+				<button class="pull-right" role="button" type="button" :class="!deliveryTime && 'disabled'" :disabled="!deliveryTime">
+					<strong>Nästa - Betalningssätt</strong>
+				</button>
+			</div>
+		</section>
+  	</div>
+
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <script type="text/javascript" src="index.js"></script>
+
+</body>
+</html>
+
+
+

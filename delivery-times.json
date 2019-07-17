@@ -1,0 +1,44 @@
+[
+  {
+    "deliveryTimeId": 1,
+    "deliveryDate": "2019-01-01",
+    "startTime": "16:00:00",
+    "stopTime": "21:00:00",
+    "inHomeAvailable": true
+  },
+  {
+    "deliveryTimeId": 2,
+    "deliveryDate": "2019-01-01",
+    "startTime": "18:00:00",
+    "stopTime": "22:30:00",
+    "inHomeAvailable": true
+  },
+  {
+    "deliveryTimeId": 3,
+    "deliveryDate": "2019-01-01",
+    "startTime": "12:00:00",
+    "stopTime": "16:00:00",
+    "inHomeAvailable": true
+  },
+  {
+    "deliveryTimeId": 4,
+    "deliveryDate": "2019-01-01",
+    "startTime": "10:00:00",
+    "stopTime": "12:00:00",
+    "inHomeAvailable": false
+  },
+  {
+    "deliveryTimeId": 5,
+    "deliveryDate": "2019-01-01",
+    "startTime": "08:00:00",
+    "stopTime": "10:00:00",
+    "inHomeAvailable": false
+  },
+  {
+    "deliveryTimeId": 6,
+    "deliveryDate": "2019-01-01",
+    "startTime": "08:00:00",
+    "stopTime": "12:00:00",
+    "inHomeAvailable": true
+  }
+]
