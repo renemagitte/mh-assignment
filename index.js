@@ -1,3 +1,4 @@
+
 var app = new Vue({
     el: '#mh-app',
     name: 'MHApp',
@@ -7,6 +8,7 @@ var app = new Vue({
             // Selected by user:
             inHome: false,
             deliveryTime: null,
+            inputValue: null,
         }
     },
     created(){
@@ -19,14 +21,14 @@ var app = new Vue({
             .then(data => { this.handleDeliveryTimesData(data) })
             .catch(err => { alert('Något gick fel.') }); 
         },
-        handleDeliveryTimeSelect(id){
-            this.deliveryTime = id;
+        handleDeliveryTimeSelect(e){
+            this.inputValue = e.srcElement.id;
         },
         handleDeliveryTimesData(data) {
             data.sort((a, b) => {
                 return a.startTime > b.startTime ? 1 : b.startTime > a.startTime ? -1 : 0;
             }).map(obj => {
-                obj.time = obj.startTime + ' - ' + obj.stopTime;
+                obj.time = obj.startTime.substring(0, 5) + ' - ' + obj.stopTime.substring(0, 5);
             });
             this.deliveryTimes = data;
         }
