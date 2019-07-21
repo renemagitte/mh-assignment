@@ -48,7 +48,8 @@
 							:id="`47704_${idx}`" 
 							name="delivery-time-slot" 
 							type="radio" 
-							:value="inputValue === '47704_' + idx"
+							:value="selectedInputId === '47704_' + idx"
+							:data-time="deliveryTime.time"
 						/>
 						<label class="small" role="radio" :for="`47704_${idx}`">
 							<span></span>
@@ -59,7 +60,7 @@
 
 			</div>
 			<div class="panel-footer">
-				<button class="pull-right" role="button" type="button" :class="!deliveryTime && 'disabled'" :disabled="!inputValue">
+				<button class="pull-right" role="button" type="button" :class="!selectedInputId && 'disabled'" :disabled="!selectedInputId">
 					<strong>Nästa - Betalningssätt</strong>
 				</button>
 			</div>

@@ -5,10 +5,10 @@ var app = new Vue({
     data() {
         return {
             deliveryTimes: [],
+            selectedInputId: null,
             // Selected by user:
             inHome: false,
             deliveryTime: null,
-            inputValue: null,
         }
     },
     created(){
@@ -22,7 +22,8 @@ var app = new Vue({
             .catch(err => { alert('Något gick fel.') }); 
         },
         handleDeliveryTimeSelect(e){
-            this.inputValue = e.srcElement.id;
+            this.selectedInputId = e.srcElement.id;
+            this.deliveryTime = e.srcElement.dataset.time; 
         },
         handleDeliveryTimesData(data) {
             data.sort((a, b) => {
@@ -34,3 +35,5 @@ var app = new Vue({
         }
     }
 });
+
+// module.exports = app;
